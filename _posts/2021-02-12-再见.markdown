@@ -1,0 +1,8 @@
+---
+layout: post
+title: 再见
+tags: [frontpage, blog]
+image: '/images/posts/1.jpg'
+---
+
+再见
