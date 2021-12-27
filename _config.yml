@@ -2,4 +2,7 @@ theme: jekyll-theme-hacker
 title: Learn Learn Learn!!!
 description: Learning make happy!
 permalink: /404.html
+# /cmd/xx.html
 permalink: /cmd/linux.html
+permalink: /cmd/docker.html
+permalink: /cmd/tmux.html
