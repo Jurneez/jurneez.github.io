@@ -1,6 +1,6 @@
 ---
 layout: page
-title: command
+title: Command
 image: '/images/pages/about.jpeg'
 ---
 
