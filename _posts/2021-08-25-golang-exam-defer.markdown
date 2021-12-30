@@ -58,7 +58,8 @@ str_0
 ---
 
 > 例题二：defer func(){...}() 和 defer func(a) {...}(a) 的区别
-```golang
+
+``` golang
 package main
 
 import "fmt"
@@ -120,7 +121,8 @@ str_0
 
 ---
 > 题目三：进阶题
-```golang
+
+``` golang
 package main
 
 import "fmt"
