@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Golang学习笔记之内存逃逸
-tags: [golang, memory excape]
+tags: [golang, memory-excape]
 image: '/images/posts/2.jpg'
 ---
 
@@ -37,6 +37,7 @@ build时添加-gcflags=-m 选项可分析内存逃逸情况,比如输出./main.g
 3. interface调用方法会发生内存逃逸，在热点代码片段，谨慎使用。
 
 ---
+
 > 参考连接
 
 1. https://segmentfault.com/a/1190000039843497
