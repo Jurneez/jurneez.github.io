@@ -5,6 +5,7 @@ tags: [golang,error,源码]
 image: '/images/posts/1.jpg'
 ---
 golang语言中的errors包是我们在编写代码的时候经常遇到的，本章解析errors的源代码。
+
 ps：代码基于golang版本：1.14.3进行分析
 
 ---
@@ -36,6 +37,7 @@ func (e *errorString) Error() string {
 ---
 
 通过go源码的低层实现，我们也可以发现，通过实现Error方法，我们也可以定义自己所需要的error。
+
 比如:(例子来自源码)
 {% highlight golang %}           
 type MyError struct {
