@@ -10,6 +10,7 @@ sync.Once在golang语言中保证对象只会被执行一次的。
 ---
 
 > 纯净版源代码如下(golang版本：1.14.3)
+
 {% highlight golang %}
 type Once struct {
     done uint32
@@ -31,6 +32,7 @@ func (o *Once) doSlow(f func()) {
     }
 }   
 {% endhighlight %}
+
 分析源码了解系统是如何实现f()函数只执行一次的：
 
 1. 通过done记录f()是否执行过，如果done为0，表示未执行，如果done未1，表示已执行
@@ -42,6 +44,7 @@ func (o *Once) doSlow(f func()) {
 下面通过测试用例了解sync.Once的运行：测试用例来自官方1.14.3源代码
 
 > case 1: 测试点：无论你调用多少次once.Do(f)函数，f()函数都会只执行一次
+
 {% highlight golang %}
 type one int
 
@@ -75,7 +78,8 @@ func TestOnce(t *testing.T) {
         t.Errorf("once failed outside run:%d is not 1", *o)
     }
 }
-{% endhighlight %}                        
+{% endhighlight %}  
+
 执行结果：
 
 *o=1
@@ -85,6 +89,7 @@ func TestOnce(t *testing.T) {
 因为，对于一个Once的实例，只有当其结构体中的done值为0的时候，才会再次执行传入的函数，一旦执行完毕，设置once.done=1,就不会再次执行传入的函数了。
 
 > case 2:测试点：即使once.Do(f)运行的f函数panic了，f()也只会执行一次
+
 {% highlight golang %}
 func TestOncePanic(t *testing.T) {
     var once Once
@@ -107,12 +112,14 @@ func TestOncePanic(t *testing.T) {
     })
 }
 {% endhighlight %}
+
 测试执行结果：只输出panic,不输出twice
+
 {% highlight golang%}
 === RUN   TestOncePanic
 panic
 --- PASS: TestOncePanic (0.00s)
 PASS
 {% endhighlight %}
+
 分析：即使f()函数进行了panic，但是Once中的doSlow(f)也会在return之前执行defer atomic.StoreUint32(&o.done, 1)语句，设置once.done=1
-</pre>

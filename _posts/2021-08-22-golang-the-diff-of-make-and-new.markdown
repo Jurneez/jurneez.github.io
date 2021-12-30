@@ -31,15 +31,21 @@ func make(t Type, size ...IntegerType) Type
 func new(Type) *Type
 {% endhighlight %}
 从源码中我们可以知道 
+
 > new和make之间的相同点：
+
 1. make和new都是golang用来分配内存的内置函数。
+
 > new和make之间的不同点：
+
 1. 从传参数看：new只传入一个参数，参数必须为数据类型，make可传入多个参数，第一个参数必须为数据类型，其他的参数是整数。
 2. 从返回的参数看：new返回一个指向分配内存的指针，make返回一个传入的数据类型。
 3. 从type看，new的type可以是任意一个数据类型，make的type只能是slice、map、chan。
 
 ---
+
 > 用new声明变量如下：
+
 {% highlight golang %}
 package main
 
@@ -95,12 +101,14 @@ func main() {
     用new声明chan变量，*ch = (chan int)(nil)
 {% endhighlight %}
 > 根据以上代码实践我们可以知道以下几点：
+
 1. new 传的参数是一个type。
 2. new 返回的是一个指针。
 3. new 会对传入的类型进行初始化，值为传入类型的默认值，并分配内存。
 
 ---
 > 用make声明变量：
+
 {% highlight golang %}
 package main
 
@@ -141,8 +149,9 @@ make 声明的slice的cap cap(s) = 5
 make 声明的slice的长度 len(s2) = 3
 make 声明的slice的cap cap(s2) = 3     
 {% endhighlight %}
+
 通过以上代码，可以了解到make的以下信息：
+
 1. make返回的是传入的类型的实体。
 2. make在声明slice的时候，第一个int是len，第二个int是cap，如果没有传第二个int参数，那么len和cap的值是一样的。
 
-</div>
