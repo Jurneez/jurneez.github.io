@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Golang中输出带有特殊字符的字符串
-tags: [frontpage, jekyll, blog]
+title: Golang学习笔记之输出带有特殊字符的字符串
+tags: [golang, string]
 image: '/images/posts/4.jpg'
 ---
 > 场景
