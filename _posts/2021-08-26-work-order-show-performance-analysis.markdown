@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 工作笔记之订单展现页面性能问题刨析
-tags: [frontpage, jekyll, blog]
+tags: [工作笔记, 性能分析]
 image: '/images/posts/1.jpg'
 ---
 
