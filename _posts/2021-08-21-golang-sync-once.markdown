@@ -108,7 +108,7 @@ func TestOncePanic(t *testing.T) {
 }
 {% endhighlight %}
 测试执行结果：只输出panic,不输出twice
-{% highlight %}
+{% highlight golang%}
 === RUN   TestOncePanic
 panic
 --- PASS: TestOncePanic (0.00s)
