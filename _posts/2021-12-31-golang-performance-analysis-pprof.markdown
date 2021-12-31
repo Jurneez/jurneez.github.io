@@ -1,6 +1,6 @@
 ---
 layout: post
-title: golang学习笔记之pprof性能分析.
+title: golang学习笔记之pprof性能分析
 tags: [golang, proformance-analysis, pprof]
 image: '/images/posts/2.jpg'
 ---
@@ -101,7 +101,6 @@ allocs是allocations的缩写，表示分配额的意思。
 
 
 当 `type=-alloc_objects`的时候，表示分析应用程序的内存临时分配情况
-## runtime/pprof
 
 
 ## 参考
