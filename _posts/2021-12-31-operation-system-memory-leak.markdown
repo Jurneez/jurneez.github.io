@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 操作系统之内存溢出（memory leak）
-tags: [os], memory-leak]
+tags: [os, memory-leak]
 image: '/images/posts/3.jpg'
 ---
 
