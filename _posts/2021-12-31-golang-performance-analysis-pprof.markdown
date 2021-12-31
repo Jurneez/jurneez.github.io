@@ -73,4 +73,3 @@ allocs是allocations的缩写，表示分配额的意思。
 
 我们可以用`go tool pprof xxx` 命令。
 
-## runtime/pprof
