@@ -29,16 +29,15 @@ sql注入攻击的方法有哪些
 
 >  一、数字注入
 
-<div class="col-xs-12 col-sm-12">
+在浏览器地址栏输入：`learn.me/sql/article.php?id=1`，这是一个get型接口，发送这个请求相当于调用一个查询语句:
 
-在浏览器地址栏输入：learn.me/sql/article.php?id=1，这是一个get型接口，发送这个请求相当于调用一个查询语句:
-
-```
+``` golang
 sql = "SELECT * FROM article WHERE id =",$id
 ```
 
 正常情况下，应该返回一个id=1的文章信息。那么，如果在浏览器地址栏输入：
-```
+
+``` golang
 learn.me/sql/article.php?id=-1 OR 1 =1
 ```
 
@@ -52,19 +51,22 @@ learn.me/sql/article.php?id=-1 OR 1 =1
 
 这是一个post请求，登录时调用接口learn.me/sql/login.html，首先连接数据库，然后后台对post请求参数中携带的用户名、密码进行参数校验，即sql的查询过程。假设正确的用户名和密码为user和pwd123，输入正确的用户名和密码、提交，相当于调用了以下的SQL语句：
 
-```
+``` mysql
 SELECT * FROM user WHERE username = 'user' ADN password = 'pwd123'
 ```
 
 由于用户名和密码都是字符串，SQL注入方法即把参数携带的数据变成mysql中注释的字符串。mysql中有2种注释的方法：
 
 1. '#'：'#'后所有的字符串都会被当成注释来处理
+
 ```
 SELECT * FROM user WHERE username = 'user'#'ADN password = '111'
 等同于：
 SELECT * FROM user WHERE username = 'user'
 ```
+
 2. '-- ' （--后面有个空格）：'-- '后面的字符串都会被当成注释来处理
+
 ```
 SELECT * FROM user WHERE username = 'user'-- 'AND password = '111'
 等同于：
