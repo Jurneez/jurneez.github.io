@@ -73,4 +73,39 @@ allocs是allocations的缩写，表示分配额的意思。
 
 我们可以用`go tool pprof xxx` 命令。
 
+#### `go tool pprof http://localhost:6060/debug/pprof/profile\?seconds\=60`
+
+执行这个命令后，等待60秒，pprof会进行cpu性能分析。
+
+之后会将分析结果保存到 一个`xx/pprof.samples.cpu.001.pb.gz`文件中，并默认进入终端交互模式。
+
+`ps:可以通过命令  go tool pprof profile /Users/user/pprof/pprof.samples.cpu.001.pb.gz 进入交互式模式，查看内容`。
+
+![about](/images/posts/golang-performance-analysis-pprof-2.png)
+
+执行top命令，下看cpu的运行情况。
+![about](/images/posts/golang-performance-analysis-pprof-3.png)
+
+1. flat：给定函数上运行耗时
+2. flat%：同上的 CPU 运行耗时总比例
+3. sum%：给定函数累积使用 CPU 总比例
+4. cum：当前函数加上它之上的调用运行总耗时
+5. cum%：同上的 CPU 运行耗时总比例
+6. 函数名称
+
+#### `go tool pprof http://localhost:6060/debug/pprof/heap`
+
+这里，`type=inuse_space`
+
+表示此处分析应用程序的常驻内存占用情况
+
+
+当 `type=-alloc_objects`的时候，表示分析应用程序的内存临时分配情况
 ## runtime/pprof
+
+
+## 参考
+
+1. https://segmentfault.com/a/1190000016412013
+
+2. https://www.cnblogs.com/Dr-wei/p/11742414.html
