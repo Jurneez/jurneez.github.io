@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 数据库之SQL和NOSQL
-tags: [golang,error,源码]
+title: 数据库之SQL和NOSQL和NewSQL
+tags: [db]
 image: '/images/posts/1.jpg'
 ---
 
