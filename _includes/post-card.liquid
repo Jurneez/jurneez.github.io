@@ -1,12 +1,7 @@
 <div class='o-grid__col o-grid__col--full'>
 
   <a href='{{ post.url | prepend: site.baseurl }}' class='c-post-card {% if forloop.first == true %} c-post-card--first {% endif %} {% if forloop.last == true %} c-post-card--last {% endif %}'>
-    <h5 class='c-post-card__title'>{{ post.title }}</h5>
-
-     <p class='c-post-card__excerpt u-font-medium'>
-      {{ post.content | strip_html | truncatewords:25 }}
-    </p>
-
+    <span class='c-post-card__title u-font-mediu'>{{ post.title }}</span>
     <span class='c-post-card__date'>{{ post.date | date: '%d %b %Y' }}</span>
   </a>
 
